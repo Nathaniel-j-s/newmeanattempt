@@ -1,0 +1,36 @@
+<h2 class="page-header">Pokemon Entry Form</h2>
+<form (submit)="onPlannerSubmit()">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="name" name="name" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Nature</label>
+    <input type="text" [(ngModel)]="nature" name="nature" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Ability</label>
+    <input type="text" [(ngModel)]="ability" name="ability" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Move 1</label>
+    <input type="text" [(ngModel)]="move1" name="move1" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Move 2</label>
+    <input type="text" [(ngModel)]="move2" name="move2" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Move 3</label>
+    <input type="text" [(ngModel)]="move3" name="move3" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Move 4</label>
+    <input type="text" [(ngModel)]="move4" name="move4" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Training Plan</label>
+    <input type="text" [(ngModel)]="plan" name="plan" class="form-control">
+  </div>
+  <input type="submit" class="btn btn-primary" value="submit">
+</form>

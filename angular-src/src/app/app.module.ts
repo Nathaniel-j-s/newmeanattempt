@@ -17,12 +17,16 @@ import {AuthService} from './services/auth.service';
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import {AuthGuard} from './guards/auth.guard';
 
+import { PokepullComponent } from './components/pokeplanner/pokepull/pokepull.component';
+import { PokeplannerComponent } from './components/pokeplanner/pokeplanner.component';
+
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
   {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+  {path:'pokeplanner', component: PokeplannerComponent}
 ]
 
 @NgModule({
@@ -33,7 +37,9 @@ const appRoutes: Routes = [
     RegisterComponent,
     HomeComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    PokepullComponent,
+    PokeplannerComponent
   ],
   imports: [
     BrowserModule,
