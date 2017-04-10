@@ -54,4 +54,11 @@ export class AuthService {
     this.user = null;
     localStorage.clear();
   }
+
+  registerPoke(poke){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/pokemonbox/pokeplanner', poke, {headers: headers})
+      .map(res => res.json());
+  }
 }
