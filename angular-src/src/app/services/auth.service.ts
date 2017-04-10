@@ -14,7 +14,9 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/users/register', user, {headers: headers})
-      .map(res => res.json());
+      .map(res => {
+        debugger;
+        return res.json()});
   }
 
   authenticateUser(user){
@@ -53,12 +55,5 @@ export class AuthService {
     this.authToken = null;
     this.user = null;
     localStorage.clear();
-  }
-
-  registerPoke(poke){
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/pokemonbox/pokeplanner', poke, {headers: headers})
-      .map(res => res.json());
   }
 }

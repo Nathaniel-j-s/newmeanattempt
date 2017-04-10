@@ -7,7 +7,7 @@ const Poke = require('../models/poke');
 // Register
 router.post('/pokeplanner', (req, res, next) => {
   let newPoke = new Poke({
-    name: req.body.name,
+    nickname: req.body.nickname,
     nature: req.body.nature,
     ability: req.body.ability,
     move1: req.body.move1,
@@ -17,7 +17,7 @@ router.post('/pokeplanner', (req, res, next) => {
     plan: req.body.plan
   });
 
-  Poke.addPoke(newPoke, (err, user) => {
+  Poke.addPoke(newPoke, (err, poke) => {
     if(err){
       res.json({success: false, msg:'Failed to register pokemon.'});
     } else {
