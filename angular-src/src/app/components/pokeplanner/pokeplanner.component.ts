@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ValidateService} from '../../services/validate.service';
-import {AuthService} from '../../services/auth.service';
+import {PokeService} from '../../services/poke.service';
 import {FlashMessagesService} from 'angular2-flash-messages';
 import {Router} from '@angular/router';
 
@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./pokeplanner.component.css']
 })
 export class PokeplannerComponent implements OnInit {
-  name: String;
+  nickname: String;
   nature: String;
   ability: String;
   move1: String;
@@ -21,7 +21,7 @@ export class PokeplannerComponent implements OnInit {
 
   constructor(
     private validateService: ValidateService,
-    private authService: AuthService,
+    private pokeService: PokeService,
     private flashMessage: FlashMessagesService,
     private router: Router
   ) { }
@@ -31,7 +31,7 @@ export class PokeplannerComponent implements OnInit {
 
   onPlannerSubmit() {
     const poke = {
-      name: this.name,
+      nickname: this.nickname,
       nature: this.nature,
       ability: this.ability,
       move1: this.move1,
@@ -43,12 +43,11 @@ export class PokeplannerComponent implements OnInit {
 
     // Required fields
     if(!this.validateService.validatePokemon(poke)) {
-      console.log(poke);
-      this.flashMessage.show('Please fill in all fields.', {cssClass: 'alert-danger', timeout: 5000});
+      this.flashMessage.show('Please fill in all of the below fields.', {cssClass: 'alert-danger', timeout: 5000});
       return false;
     }
 
-    this.authService.registerPoke(poke).subscribe(data => {
+    this.pokeService.registerPoke(poke).subscribe(data => {
       if(data.success){
         this.flashMessage.show('This pokemon has now been placed in the box.', {cssClass: 'alert-success', timeout: 5000});
         this.router.navigate(['/dashboard']);

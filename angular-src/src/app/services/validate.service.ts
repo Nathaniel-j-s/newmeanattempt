@@ -19,7 +19,7 @@ export class ValidateService {
   }
 
   validatePokemon(poke){
-    if(poke.name == undefined || poke.nature == undefined || poke.ability == undefined || poke.move1 == undefined || poke.move2 == undefined || poke.move3 == undefined || poke.move4 == undefined || poke.plan == undefined) {
+    if(poke.nickname == undefined || poke.nature == undefined || poke.ability == undefined || poke.move1 == undefined || poke.move2 == undefined || poke.move3 == undefined || poke.move4 == undefined || poke.plan == undefined) {
       return false;
     } else {
       return true;

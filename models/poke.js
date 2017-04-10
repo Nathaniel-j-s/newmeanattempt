@@ -3,9 +3,8 @@ const config = require('../config/database');
 
 // Poke schema
 const PokeSchema = mongoose.Schema({
-  name: {
-    type: String,
-    required: true
+  nickname: {
+    type: String
   },
   nature: {
     type: String,
